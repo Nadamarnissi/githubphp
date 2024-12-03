@@ -219,6 +219,8 @@ foreach ($etudiants as $nom => $notes) {
     $moyennes[$nom] = $moyenne;
 }
 
+// Exercice 10:
+
 ?>
 
 <!DOCTYPE html>
@@ -400,6 +402,31 @@ foreach ($etudiants as $nom => $notes) {
                 </tr>
             <?php endforeach; ?>
         </table>
+    </div>
+    <div>
+        <h2>Exercice 10</h2>
+        <form method="POST">
+            Type de compte :
+            <select name="type">
+                <option value="Administrateur">Administrateur</option>
+                <option value="Utilisateur">Utilisateur</option>
+            </select>
+            <button type="submit" name="submitEx10">Envoyer</button>
+        </form>
+        <?php
+            if (isset($_POST['submitEx10'])) {
+                $type = $_POST['type'];
+                switch ($type) {
+                    case 'Administrateur':
+                        echo "Bienvenue Administrateur !";
+                        break;
+                    
+                    default:
+                    echo "Bienvenue Utilisateur !";
+                        break;
+                }
+            }
+        ?>
     </div>
 </body>
 
